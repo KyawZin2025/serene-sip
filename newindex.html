@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Serene Sip | Aesthetic Coffee House</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* --- CSS Variables (အရောင်များ သတ်မှတ်ခြင်း) --- */
+      :root {
+        --primary-color: #4a3b32; /* ကော်ဖီရောင် */
+        --secondary-color: #8da399; /* စိမ်းဖန့်ဖန့် (Sage Green) */
+        --accent-color: #c89f78; /* ရွှေညိုရောင် */
+        --bg-color: #faf9f6; /* Off-white background */
+        --text-color: #333;
+        --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      /* --- Global Styles --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.7;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif; /* ခေါင်းစဉ်ဖောင့် */
+        color: var(--primary-color);
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      /* --- Navigation --- */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 5%;
+        background-color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .logo {
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--primary-color);
+        letter-spacing: 1px;
+      }
+
+      .nav-links a {
+        margin-left: 30px;
+        color: var(--text-color);
+        font-weight: 500;
+        font-size: 14px;
+        text-transform: uppercase;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent-color);
+      }
+
+      /* --- Hero Section (မျက်နှာဖုံး) --- */
+      .hero {
+        height: 90vh; /* မျက်နှာပြင်အပြည့်နီးပါး */
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+          url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        padding: 20px;
+      }
+
+      .hero h1 {
+        font-size: 4rem; /* စာလုံးအကြီးကြီး */
+        color: #fff;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        font-weight: 300;
+      }
+
+      .btn-main {
+        padding: 15px 35px;
+        background-color: var(--accent-color);
+        color: white;
+        border-radius: 50px;
+        font-weight: 500;
+        transition: transform 0.3s ease;
+      }
+
+      .btn-main:hover {
+        background-color: #b08862;
+        transform: translateY(-3px); /* Hover လုပ်ရင် အပေါ်နည်းနည်းတက် */
+      }
+
+      /* --- Photo Grid Section (ဆိုင်အငွေ့အသက်ပြရန်) --- */
+      .vibe-section {
+        padding: 80px 5%;
+        text-align: center;
+      }
+
+      .vibe-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+      }
+
+      .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .grid-item {
+        height: 400px;
+        overflow: hidden;
+        border-radius: 15px;
+        position: relative;
+      }
+
+      .grid-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .grid-item:hover img {
+        transform: scale(1.1); /* ပုံကို Zoom ဆွဲလိုက်သလိုဖြစ်စေရန် */
+      }
+
+      /* --- Menu Section (ပုံနှင့်တကွ) --- */
+      .menu-section {
+        background-color: #fff;
+        padding: 80px 5%;
+        text-align: center;
+      }
+
+      .menu-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+
+      .section-subtitle {
+        color: var(--secondary-color);
+        margin-bottom: 50px;
+        font-style: italic;
+      }
+
+      .menu-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+      }
+
+      .menu-card {
+        background: white;
+        width: 300px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: var(--card-shadow);
+        transition: 0.3s;
+        text-align: left;
+      }
+
+      .menu-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      .menu-img {
+        height: 250px;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .menu-info {
+        padding: 20px;
+      }
+
+      .menu-info h3 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+
+      .menu-desc {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .menu-price {
+        color: var(--accent-color);
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      /* --- Footer --- */
+      footer {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 60px 5%;
+        text-align: center;
+      }
+
+      .footer-content p {
+        opacity: 0.8;
+        margin-top: 10px;
+      }
+
+      /* Mobile Response */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        .nav-links {
+          display: none;
+        } /* Mobile မှာ Menu ဖျောက်ထား (simplification) */
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">☕ Serene Sip</div>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Our Vibe</a>
+        <a href="#">Menu</a>
+        <a href="#">Contact</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <h1>Taste the Serenity</h1>
+      <p>Premium beans, cozy vibes, and moments of peace.</p>
+      <a href="#" class="btn-main">Explore Menu</a>
+    </header>
+
+    <section class="vibe-section">
+      <h2>The Serene Atmosphere</h2>
+      <div class="image-grid">
+        <div class="grid-item">
+          <img
+            src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Cafe Interior"
+          />
+        </div>
+        <div class="grid-item">
+          <img
+            src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Coffee Beans"
+          />
+        </div>
+        <div class="grid-item">
+          <img
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Reading Corner"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-section">
+      <h2>Curated Menu</h2>
+      <p class="section-subtitle">Handcrafted with love and precision.</p>
+
+      <div class="menu-container">
+        <div class="menu-card">
+          <img
+            src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            class="menu-img"
+            alt="Latte"
+          />
+          <div class="menu-info">
+            <h3>Honey Oat Latte</h3>
+            <p class="menu-desc">
+              Smooth espresso with organic honey and creamy oat milk.
+            </p>
+            <span class="menu-price">$ 5.50</span>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img
+            src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            class="menu-img"
+            alt="Matcha"
+          />
+          <div class="menu-info">
+            <h3>Kyoto Matcha</h3>
+            <p class="menu-desc">
+              Ceremonial grade matcha sourced directly from Japan.
+            </p>
+            <span class="menu-price">$ 6.00</span>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img
+            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            class="menu-img"
+            alt="Cake"
+          />
+          <div class="menu-info">
+            <h3>Berry Cheesecake</h3>
+            <p class="menu-desc">
+              New York style cheesecake topped with fresh berries.
+            </p>
+            <span class="menu-price">$ 4.50</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <h3>Serene Sip</h3>
+        <p>Open Daily: 8:00 AM - 9:00 PM</p>
+        <p>📍 No. 123, Serene Road, Yangon</p>
+        <br />
+        <p>&copy; 2025 Serene Sip. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

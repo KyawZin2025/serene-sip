@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="my">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Serene Sip | Coffee & Tea</title>
+    <style>
+      /* --- CSS Styling (အလှဆင်ခြင်းအပိုင်း) --- */
+
+      /* တကယ်သုံးမယ့် အရောင်များကို သတ်မှတ်ခြင်း (Variables) */
+      :root {
+        --main-bg: #f9f7f2; /* အောက်ခံ ခရင်မ်ရောင် */
+        --primary-text: #4a3b32; /* စာသား အညိုရောင် */
+        --accent-green: #8da399; /* စိမ်းဖန့်ဖန့်အရောင် */
+        --accent-gold: #c08552; /* ရွှေအိုရောင် (Button အတွက်) */
+      }
+
+      /* အခြေခံ Reset လုပ်ခြင်း */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Georgia", sans-serif; /* ဖောင့်အမျိုးအစား */
+      }
+
+      body {
+        background-color: var(--main-bg);
+        color: var(--primary-text);
+        line-height: 1.6;
+      }
+
+      /* 1. Navigation Bar (မီနူးဘား) */
+      header {
+        background-color: #ffffff;
+        padding: 20px 50px;
+        display: flex; /* ဘယ်ညာညှိဖို့ Flexbox သုံးထားသည် */
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        position: sticky; /* အပေါ်မှာ ကပ်နေစေရန် */
+        top: 0;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-text);
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--primary-text);
+        font-weight: bold;
+      }
+
+      nav a:hover {
+        color: var(--accent-gold); /* Mouse တင်ရင် အရောင်ပြောင်း */
+      }
+
+      /* 2. Hero Section (အဓိက မျက်နှာစာ) */
+      .hero {
+        background-image: url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80");
+        background-size: cover;
+        background-position: center;
+        height: 80vh; /* မျက်နှာပြင်ရဲ့ 80% အမြင့် */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+      }
+
+      .hero-content {
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.4
+        ); /* စာဖတ်ရလွယ်အောင် နောက်ခံ အမည်းဖျော့ဖျော့ခံ */
+        padding: 40px;
+        border-radius: 10px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        margin-bottom: 10px;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: var(--accent-gold);
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 20px;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        background-color: #a06838;
+      }
+
+      /* 3. About Section */
+      .section {
+        padding: 60px 20px;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto; /* အလယ်တည့်တည့်ထားရန် */
+      }
+
+      .section h2 {
+        color: var(--accent-green);
+        margin-bottom: 20px;
+      }
+
+      /* 4. Menu Grid (မီနူးကတ်များ) */
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(250px, 1fr)
+        ); /* မျက်နှာပြင်အကျယ်အလိုက် အော်တိုချိန်ညှိ */
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .menu-item {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .menu-item h3 {
+        color: var(--primary-text);
+      }
+
+      .price {
+        color: var(--accent-gold);
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+      }
+
+      /* 5. Footer */
+      footer {
+        background-color: var(--primary-text);
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">☕ Serene Sip</div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">Story</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Welcome to Serene Sip</h1>
+        <p>Your daily dose of calm in a cup.</p>
+        <a href="#menu" class="btn">View Menu</a>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2>Our Story</h2>
+      <p>
+        Serene Sip believes in the peace of a cup of coffee. Our shop is
+        designed to provide a peaceful and relaxing environment for everyone. We
+        invite you to come and enjoy our organic coffee and homemade pastries.
+      </p>
+    </section>
+
+    <section
+      id="menu"
+      class="section"
+      style="background-color: #eeeadd; max-width: 100%"
+    >
+      <h2>Popular Menu</h2>
+      <div class="menu-grid" style="max-width: 800px; margin: 0 auto">
+        <div class="menu-item">
+          <h3>🍵 Matcha Latte</h3>
+          <p>Premium Japanese Matcha with steamed milk.</p>
+          <span class="price">$ 4.50</span>
+        </div>
+
+        <div class="menu-item">
+          <h3>☕ Serene Signature Coffee</h3>
+          <p>Our special house blend, smooth and rich.</p>
+          <span class="price">$ 3.50</span>
+        </div>
+
+        <div class="menu-item">
+          <h3>🥐 Butter Croissant</h3>
+          <p>Freshly baked, flaky and buttery.</p>
+          <span class="price">$ 2.50</span>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <p>📍 123 Green Street, Yangon</p>
+      <p>📞 09-123456789</p>
+      <p>&copy; 2025 Serene Sip Coffee Shop</p>
+    </footer>
+  </body>
+</html>
